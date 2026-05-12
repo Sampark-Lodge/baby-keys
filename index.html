@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Baby Key Smasher 🎵</title>
+    <meta name="description" content="A fun baby-proof keyboard app with colorful bubbles and music">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- ===== START SCREEN ===== -->
+        <div id="start-screen">
+            <div class="start-content">
+                <h1 id="app-title">🎵 Baby Keys 🎵</h1>
+                <p class="subtitle">Pick a color world!</p>
+
+                <!-- THEME SELECTOR -->
+                <div id="theme-selector">
+                    <button class="theme-btn active" data-theme="rainbow" id="theme-rainbow">
+                        <span class="theme-preview rainbow-preview"></span>
+                        <span class="theme-label">🌈 Rainbow</span>
+                    </button>
+                    <button class="theme-btn" data-theme="ocean" id="theme-ocean">
+                        <span class="theme-preview ocean-preview"></span>
+                        <span class="theme-label">🌊 Ocean</span>
+                    </button>
+                    <button class="theme-btn" data-theme="candy" id="theme-candy">
+                        <span class="theme-preview candy-preview"></span>
+                        <span class="theme-label">🍬 Candy</span>
+                    </button>
+                    <button class="theme-btn" data-theme="forest" id="theme-forest">
+                        <span class="theme-preview forest-preview"></span>
+                        <span class="theme-label">🌿 Forest</span>
+                    </button>
+                    <button class="theme-btn" data-theme="sunshine" id="theme-sunshine">
+                        <span class="theme-preview sunshine-preview"></span>
+                        <span class="theme-label">☀️ Sunshine</span>
+                    </button>
+                </div>
+
+                <!-- MODE SELECTOR -->
+                <p class="subtitle mode-subtitle">Pick a mode!</p>
+                <div id="mode-selector">
+                    <button class="mode-btn active" data-mode="free" id="mode-free">
+                        <span class="mode-icon">🎉</span>
+                        <span class="mode-label">Free Play</span>
+                    </button>
+                    <button class="mode-btn" data-mode="alphabet" id="mode-alphabet">
+                        <span class="mode-icon">🔤</span>
+                        <span class="mode-label">ABC Mode</span>
+                    </button>
+                    <button class="mode-btn" data-mode="numbers" id="mode-numbers">
+                        <span class="mode-icon">🔢</span>
+                        <span class="mode-label">123 Mode</span>
+                    </button>
+                </div>
+
+                <!-- BIG START BUTTON -->
+                <button id="start-btn">
+                    <span class="btn-emoji">▶</span>
+                    <span class="btn-text">START!</span>
+                </button>
+
+                <!-- Small AdSense ad on start screen -->
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                        style="display:inline-block;width:320px;height:50px"
+                        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                        data-ad-slot="YOUR_AD_SLOT_ID"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== GAME AREA ===== -->
+        <canvas id="bg-canvas"></canvas>
+        <div id="bubble-container"></div>
+
+        <!-- HUD -->
+        <div id="bubble-counter">🫧 <span id="counter-num">0</span></div>
+        <div id="mode-badge"></div>
+        <div id="prompt-display"></div>
+        <div id="lock-indicator" title="Long-press for parent menu">🔒</div>
+        <div id="unlock-hint">Press ESC 3× fast to exit</div>
+        <div id="celebration"></div>
+
+        <!-- ===== PARENT DASHBOARD ===== -->
+        <div id="parent-dashboard" class="hidden">
+            <div class="dashboard-panel">
+                <h2>👨‍👩‍👧 Parent Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">⏱️ Play Time</div>
+                        <div class="stat-value" id="stat-playtime">0:00</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">🫧 Total Bubbles</div>
+                        <div class="stat-value" id="stat-bubbles">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">💥 Bubbles Popped</div>
+                        <div class="stat-value" id="stat-popped">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">🎮 Sessions</div>
+                        <div class="stat-value" id="stat-sessions">0</div>
+                    </div>
+                </div>
+                <h3>⌨️ Most Pressed Keys</h3>
+                <div id="key-chart"></div>
+                <div class="dashboard-actions">
+                    <button id="dash-close" class="dash-btn">✕ Close</button>
+                    <button id="dash-exit-fs" class="dash-btn dash-btn-warn">🚪 Exit Fullscreen</button>
+                    <button id="dash-reset" class="dash-btn dash-btn-danger">🗑️ Reset Stats</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
