@@ -1,4 +1,4 @@
-const CACHE_NAME = 'baby-keys-v8-pacing';
+const CACHE_NAME = 'baby-keys-v9-mobile';
 const ASSETS_TO_CACHE = [
     './',
     'index.html',

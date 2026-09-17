@@ -360,10 +360,21 @@ html, body {
 #learning-dom-container {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Clear the absolute header (top) and the fixed keyboard bar (bottom) */
+    padding: 72px 8px calc(clamp(80px, 16vh, 120px) + env(safe-area-inset-bottom) + 28px);
     z-index: 5;
+}
+
+/* Concept-card wrapper fills the scrollable area and centres the card */
+.world-card-container {
+    min-height: 100%;
+}
+
+/* Instrument picker flows from the top of the scroll area and centres horizontally */
+.music-world {
+    margin: 0 auto;
 }
 
 /* WORLD GIANT CONCEPT CARDS */
@@ -827,3 +838,92 @@ body.calm-mode .toy-card {
 }
 body.calm-mode .toy-card { opacity: 1 !important; }
 body.calm-mode .floaty { display: none; }
+
+/* ========================================================================
+   MOBILE / TOUCH RESPONSIVENESS
+   ======================================================================== */
+
+/* Use dynamic viewport height where supported (avoids mobile URL-bar jump) */
+#app, #home-screen, .playroom-container, #adult-confirm-modal, #parent-dashboard {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Keep the keyboard bar clear of the notch / home indicator */
+.piano-bar-container {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    max-width: calc(100vw - 16px);
+}
+.playroom-header {
+    top: calc(16px + env(safe-area-inset-top));
+}
+
+@media (max-width: 600px) {
+    #home-screen { padding: 24px 12px 32px; }
+
+    .toy-room-grid { gap: 14px; }
+    .toy-card { padding: 20px 12px; border-radius: 26px; }
+
+    /* Responsive keyboard: keys flex to fill the width instead of overflowing */
+    .piano-bar-container {
+        left: 8px;
+        right: 8px;
+        transform: none;
+        width: auto;
+        max-width: none;
+        gap: 5px;
+        padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+        border-radius: 24px;
+        justify-content: space-between;
+    }
+    .piano-key {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        height: clamp(60px, 11vh, 92px);
+        font-size: 0.9rem;
+        border-radius: 12px;
+        padding-bottom: 8px;
+    }
+
+    /* Concept cards: fit within the space between header and keyboard */
+    .world-giant-card {
+        width: min(88vw, 420px);
+        height: auto;
+        min-height: 0;
+        max-height: 100%;
+        padding: 24px 20px;
+        gap: 12px;
+        border-radius: 32px;
+    }
+    .world-symbol { font-size: clamp(5rem, 22vw, 8rem); }
+    .world-emoji { font-size: clamp(3.4rem, 16vw, 6rem); }
+    .world-name { font-size: clamp(1.4rem, 6vw, 2.2rem); }
+    .world-photo { width: min(72vw, 260px); height: min(52vh, 260px); }
+
+    /* Music world instrument grid */
+    .music-world { padding-bottom: calc(clamp(76px, 14vh, 100px) + env(safe-area-inset-bottom) + 20px); }
+    .music-heading { font-size: 1.4rem; margin-bottom: 12px; }
+    .instrument-grid { gap: 10px; }
+    .instrument-tile { padding: 14px 8px; border-radius: 20px; border-width: 3px; }
+    .instrument-emoji { font-size: clamp(2rem, 10vw, 2.8rem); }
+    .instrument-name { font-size: clamp(0.85rem, 3.4vw, 1.05rem); }
+
+    #app-title { font-size: clamp(2.6rem, 11vw, 4rem); }
+}
+
+/* Small / landscape phones: shrink the concept card so it never hides behind the keyboard */
+@media (max-height: 560px) {
+    .world-giant-card { height: auto; min-height: 0; padding: 16px; gap: 8px; }
+    .world-symbol { font-size: clamp(3.5rem, 14vh, 6rem); }
+    .world-emoji { font-size: clamp(2.6rem, 12vh, 4.5rem); }
+    .piano-key { height: clamp(48px, 22vh, 80px); }
+    #learning-dom-container { padding-top: 56px; }
+}
+
+/* Give every tappable control a comfortable hit area + kill the tap highlight */
+.toy-card, .piano-key, .instrument-tile, .parent-lock-btn, .dash-btn,
+.switch, .setting-item select, .adult-ring {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
