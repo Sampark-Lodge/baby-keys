@@ -1,4 +1,11 @@
-serve.py
-node_modules/
+# OS / editor junk
 .DS_Store
 Thumbs.db
+*.log
+
+# Node (not used at runtime, but just in case)
+node_modules/
+
+# Python cache from tools/
+__pycache__/
+*.pyc

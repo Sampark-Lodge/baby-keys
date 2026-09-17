@@ -3,127 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Baby Key Smasher 🎵</title>
-    <meta name="description" content="A fun baby-proof keyboard app with colorful bubbles and music">
+    <title>Baby Keys 🎵 Early-Learning Sensory Playground</title>
+    <meta name="description" content="A browser-based interactive early-learning playground for babies and toddlers.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+    <meta name="theme-color" content="#1b1e3d">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9325652578538740" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
 
-        <!-- ===== START SCREEN ===== -->
-        <div id="start-screen">
-            <div class="start-content">
-                <h1 id="app-title">🎵 Baby Keys 🎵</h1>
-                <p class="subtitle">Pick a color world!</p>
+        <!-- ===== TOY-ROOM HOME SCREEN ===== -->
+        <div id="home-screen">
+            <!-- Playful animated sky decor -->
+            <div class="sky-decor" aria-hidden="true">
+                <div class="sun"></div>
+                <div class="cloud cloud-1"></div>
+                <div class="cloud cloud-2"></div>
+                <div class="cloud cloud-3"></div>
+                <div class="floaty floaty-1">⭐</div>
+                <div class="floaty floaty-2">🎈</div>
+                <div class="floaty floaty-3">🌈</div>
+                <div class="floaty floaty-4">✨</div>
+            </div>
 
-                <!-- THEME SELECTOR -->
-                <div id="theme-selector">
-                    <button class="theme-btn active" data-theme="rainbow" id="theme-rainbow">
-                        <span class="theme-preview rainbow-preview"></span>
-                        <span class="theme-label">🌈 Rainbow</span>
-                    </button>
-                    <button class="theme-btn" data-theme="ocean" id="theme-ocean">
-                        <span class="theme-preview ocean-preview"></span>
-                        <span class="theme-label">🌊 Ocean</span>
-                    </button>
-                    <button class="theme-btn" data-theme="candy" id="theme-candy">
-                        <span class="theme-preview candy-preview"></span>
-                        <span class="theme-label">🍬 Candy</span>
-                    </button>
-                    <button class="theme-btn" data-theme="forest" id="theme-forest">
-                        <span class="theme-preview forest-preview"></span>
-                        <span class="theme-label">🌿 Forest</span>
-                    </button>
-                    <button class="theme-btn" data-theme="sunshine" id="theme-sunshine">
-                        <span class="theme-preview sunshine-preview"></span>
-                        <span class="theme-label">☀️ Sunshine</span>
-                    </button>
+            <div class="home-header">
+                <h1 id="app-title">Baby Keys 🎵</h1>
+                <p class="home-subtitle">Tap a toy to start playing!</p>
+            </div>
+
+            <!-- 8 CORE LEARNING WORLDS GRID -->
+            <div class="toy-room-grid">
+                <div class="toy-card" data-world="sensory">
+                    <span class="toy-icon">🌈</span>
+                    <span class="toy-title">Sensory</span>
                 </div>
 
-                <!-- MODE SELECTOR -->
-                <p class="subtitle mode-subtitle">Pick a mode!</p>
-                <div id="mode-selector">
-                    <button class="mode-btn active" data-mode="free" id="mode-free">
-                        <span class="mode-icon">🎉</span>
-                        <span class="mode-label">Free Play</span>
-                    </button>
-                    <button class="mode-btn" data-mode="alphabet" id="mode-alphabet">
-                        <span class="mode-icon">🔤</span>
-                        <span class="mode-label">ABC Mode</span>
-                    </button>
-                    <button class="mode-btn" data-mode="numbers" id="mode-numbers">
-                        <span class="mode-icon">🔢</span>
-                        <span class="mode-label">123 Mode</span>
-                    </button>
+                <div class="toy-card" data-world="colour">
+                    <span class="toy-icon">🎨</span>
+                    <span class="toy-title">Colours</span>
                 </div>
 
-                <!-- BIG START BUTTON -->
-                <button id="start-btn">
-                    <span class="btn-emoji">▶</span>
-                    <span class="btn-text">START!</span>
-                </button>
+                <div class="toy-card" data-world="animal">
+                    <span class="toy-icon">🐶</span>
+                    <span class="toy-title">Animals</span>
+                </div>
 
-                <!-- Google AdSense ad -->
-                <div class="ad-container">
-                    <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-client="ca-pub-9325652578538740"
-                        data-ad-slot="YOUR_AD_SLOT_ID"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                <div class="toy-card" data-world="number">
+                    <span class="toy-icon">🔢</span>
+                    <span class="toy-title">Numbers</span>
+                </div>
+
+                <div class="toy-card" data-world="alphabet">
+                    <span class="toy-icon">🔤</span>
+                    <span class="toy-title">Alphabet</span>
+                </div>
+
+                <div class="toy-card" data-world="shape">
+                    <span class="toy-icon">🔺</span>
+                    <span class="toy-title">Shapes</span>
+                </div>
+
+                <div class="toy-card" data-world="object">
+                    <span class="toy-icon">📦</span>
+                    <span class="toy-title">Objects</span>
+                </div>
+
+                <div class="toy-card" data-world="music">
+                    <span class="toy-icon">🎵</span>
+                    <span class="toy-title">Music</span>
                 </div>
             </div>
         </div>
 
-        <!-- ===== GAME AREA ===== -->
-        <canvas id="bg-canvas"></canvas>
-        <div id="bubble-container"></div>
+        <!-- ===== CHILD PLAYROOM ACTIVE CONTAINER ===== -->
+        <div id="active-playroom" class="playroom-container">
+            <div class="playroom-header">
+                <span class="playroom-title" id="playroom-title-badge">Sensory</span>
+                <div class="parent-lock-btn" id="lock-indicator" title="Hold for Parent Gate">🔒</div>
+            </div>
 
-        <!-- HUD -->
-        <div id="bubble-counter">🫧 <span id="counter-num">0</span></div>
-        <div id="mode-badge"></div>
-        <div id="prompt-display"></div>
-        <div id="lock-indicator" title="Long-press for parent menu">🔒</div>
-        <div id="unlock-hint">Press ESC 3× fast to exit</div>
-        <div id="celebration"></div>
+            <!-- Canvas for particles, starbursts, ripples -->
+            <canvas id="sensory-canvas"></canvas>
 
-        <!-- ===== PARENT DASHBOARD ===== -->
+            <!-- DOM Container for Learning Concept Cards -->
+            <div id="learning-dom-container"></div>
+
+            <!-- Interactive Rainbow Piano Bar -->
+            <div id="piano-bar" class="piano-bar-container">
+                <button class="piano-key key-red" data-note="0">C</button>
+                <button class="piano-key key-orange" data-note="1">D</button>
+                <button class="piano-key key-yellow" data-note="2">E</button>
+                <button class="piano-key key-green" data-note="3">F</button>
+                <button class="piano-key key-cyan" data-note="4">G</button>
+                <button class="piano-key key-blue" data-note="5">A</button>
+                <button class="piano-key key-purple" data-note="6">B</button>
+                <button class="piano-key key-pink" data-note="7">C2</button>
+            </div>
+        </div>
+
+        <!-- HUD & Unlock Hints -->
+        <div id="unlock-hint">Hold 🔒 for parent gate</div>
+
+        <!-- ===== ADULT CONFIRMATION BARRIER MODAL ===== -->
+        <div id="adult-confirm-modal" class="hidden">
+            <div class="adult-modal-panel">
+                <h3>👨‍👩‍👧 Adult Confirmation</h3>
+                <p>Hold the blue ring below for 3 seconds to access parent menu.</p>
+                <div id="adult-ring-btn" class="adult-ring">
+                    <span id="adult-ring-text">HOLD</span>
+                </div>
+                <button id="adult-cancel-btn" class="dash-btn" style="margin-top: 15px;">Cancel</button>
+            </div>
+        </div>
+
+        <!-- ===== PARENT DASHBOARD & SETTINGS MODAL ===== -->
         <div id="parent-dashboard" class="hidden">
             <div class="dashboard-panel">
                 <h2>👨‍👩‍👧 Parent Dashboard</h2>
+
+                <!-- STATISTICS GRID -->
                 <div class="dashboard-grid">
                     <div class="stat-card">
                         <div class="stat-label">⏱️ Play Time</div>
-                        <div class="stat-value" id="stat-playtime">0:00</div>
+                        <div class="stat-value" id="stat-playtime">0m</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">🫧 Total Bubbles</div>
-                        <div class="stat-value" id="stat-bubbles">0</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">💥 Bubbles Popped</div>
-                        <div class="stat-value" id="stat-popped">0</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">🎮 Sessions</div>
+                        <div class="stat-label">🎮 Total Sessions</div>
                         <div class="stat-value" id="stat-sessions">0</div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-label">⚡ Total Interactions</div>
+                        <div class="stat-value" id="stat-interactions">0</div>
+                    </div>
                 </div>
-                <h3>⌨️ Most Pressed Keys</h3>
-                <div id="key-chart"></div>
+
+                <!-- SETTINGS TOGGLES -->
+                <h3>⚙️ Settings & Controls</h3>
+                <div class="settings-group">
+                    <div class="setting-item">
+                        <span>🌱 Calm Mode</span>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-calm-mode">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <span>🔊 Sound Effects</span>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-sound" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <span>🗣️ Spoken Voice</span>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-voice" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <span>🎶 Background Music</span>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-bgmusic">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <span>🎓 Play Stage</span>
+                        <select id="setting-stage">
+                            <option value="1" selected>Stage 1: Hulk Mode (Smash Anything)</option>
+                            <option value="2">Stage 2: Press (Space Focus)</option>
+                            <option value="3">Stage 3: Move (Arrow Keys)</option>
+                            <option value="4">Stage 4: Pointer</option>
+                            <option value="5">Stage 5: Click</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ACTIONS -->
                 <div class="dashboard-actions">
-                    <button id="dash-close" class="dash-btn">✕ Close</button>
-                    <button id="dash-exit-fs" class="dash-btn dash-btn-warn">🚪 Exit Fullscreen</button>
+                    <button id="dash-close" class="dash-btn">✕ Back to Play</button>
+                    <button id="dash-exit-home" class="dash-btn dash-btn-warn">🏠 Home Screen</button>
                     <button id="dash-reset" class="dash-btn dash-btn-danger">🗑️ Reset Stats</button>
                 </div>
             </div>
         </div>
+
     </div>
-    <script src="app.js"></script>
+
+    <!-- CORE ENGINE SCRIPTS -->
+    <script src="js/core/storage.js"></script>
+    <script src="js/core/feedback-governor.js"></script>
+    <script src="js/core/audio-engine.js"></script>
+    <script src="js/core/asset-manager.js"></script>
+    <script src="js/core/emoji-assets.js"></script>
+    <script src="js/core/media-assets.js"></script>
+    <script src="js/core/world-pacing.js"></script>
+    <script src="js/core/sensory-engine.js"></script>
+    <script src="js/core/diagnostics.js"></script>
+    <script src="js/core/safety-engine.js"></script>
+    <script src="js/core/session-engine.js"></script>
+    <script src="js/core/chaos-tester.js"></script>
+    <script src="js/core/input-layer.js"></script>
+    <script src="js/core/interaction-engine.js"></script>
+
+    <!-- LEARNING ENGINE SCRIPTS -->
+    <script src="js/learning/concept-registry.js"></script>
+    <script src="js/learning/learning-data.js"></script>
+    <script src="js/learning/activity-registry.js"></script>
+    <script src="js/learning/activity-engine.js"></script>
+    <script src="js/learning/progression-engine.js"></script>
+
+    <!-- WORLDS SCRIPTS -->
+    <script src="js/worlds/sensory-world.js"></script>
+    <script src="js/worlds/colour-world.js"></script>
+    <script src="js/worlds/animal-world.js"></script>
+    <script src="js/worlds/number-world.js"></script>
+    <script src="js/worlds/alphabet-world.js"></script>
+    <script src="js/worlds/shape-world.js"></script>
+    <script src="js/worlds/object-world.js"></script>
+    <script src="js/worlds/music-world.js"></script>
+
+    <!-- PARENT & CONTROLLER SCRIPTS -->
+    <script src="js/parent/parent-gate.js"></script>
+    <script src="js/parent/parent-dashboard.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- SERVICE WORKER REGISTRATION -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(() => {});
+            });
+        }
+    </script>
 </body>
 </html>

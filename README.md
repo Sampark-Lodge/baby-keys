@@ -1,48 +1,46 @@
-# 🎵 Baby Keys
+# Baby Keys 🎵
 
-A fullscreen, baby-proof keyboard smash app with colorful rising bubbles, sweet music-box sounds, and interactive learning modes.
+A browser-based, offline-friendly early-learning sensory playground for babies and toddlers. Tap, smash, or play — every input responds with gentle sound, illustrated icons, and colourful particle feedback.
+
+**Live app:** https://sampark-lodge.github.io/baby-keys/
+
+## Play worlds
+
+- 🌈 **Sensory** — free-play cause-and-effect objects
+- 🎨 **Colours** — full-screen colour morphing
+- 🐶 **Animals** — illustrated animals with real animal sounds
+- 🔢 **Numbers** — bouncy, tappable counting objects
+- 🔤 **Alphabet** — letters, phonics, and linked pictures
+- 🔺 **Shapes** — shape recognition
+- 📦 **Objects** — everyday objects with real photos
+- 🎹 **Music** — pick an instrument, then play it on the keyboard
 
 ## Features
 
-- **🔒 Fullscreen Lock** — Goes fullscreen on start, blocks dangerous shortcuts, re-enters if somehow exited
-- **🫧 Colorful Bubbles** — Every key press spawns a glowing bubble showing the letter + animal emoji, rising up with sparkle particles
-- **🎶 Sweet Music** — Pentatonic scale notes via Web Audio API (always sounds pleasant)
-- **🗣️ Speech Synthesis** — Says the letter name aloud as bubbles form
-- **🐱 Animal Emojis** — Each letter A-Z maps to an animal emoji shown in the bubble
-- **💥 Bubble Pop** — Click/tap bubbles to pop them with a satisfying sound
-- **🔢 Bubble Counter** — Running total of bubbles spawned
+- **Illustrated icons** for every concept (OpenMoji), consistent across all devices
+- **Real, CC-licensed media** — animal sounds, object photos, and a lullaby (bundled locally)
+- **Multi-instrument synth** — piano, guitar, drum, trumpet, violin, sax, bells, flute
+- **Gentle pacing** — holding/mashing keys won't flip cards too fast
+- **Feedback governor** bounds particles and audio so rapid "hulk-smashing" never overwhelms
+- **Parent dashboard** (hold the 🔒) — Calm Mode, sound/voice/music toggles, play stages, stats
+- **Installable PWA** — works fully offline after the first visit; all assets are preloaded and cached
+- Respects `prefers-reduced-motion` and Calm Mode
 
-### 🎮 Three Modes
-- **Free Play** — Any key creates a bubble (default)
-- **ABC Mode** — Prompts A→Z in sequence with celebration confetti on completion
-- **123 Mode** — Prompts 0→9 in sequence
+## Run locally
 
-### 🎨 Five Color Themes
-- 🌈 Rainbow, 🌊 Ocean, 🍬 Candy, 🌿 Forest, ☀️ Sunshine
+Any static file server works:
 
-### 👨‍👩‍👧 Parent Dashboard
-- Long-press the 🔒 icon (3 seconds) to access
-- Shows: play time, total bubbles, bubbles popped, session count
-- Top pressed keys chart
-- Exit fullscreen & reset stats options
-
-## How to Exit (Parent Only)
-Press **ESC 3 times quickly** — your baby won't figure that out 😄
-
-## Tech Stack
-- Pure HTML/CSS/JS — no frameworks, no build step
-- Web Audio API for sound synthesis
-- Speech Synthesis API for letter names
-- localStorage for stats persistence
-
-## Run Locally
-Just open `index.html` in a browser, or serve with:
 ```bash
-npx http-server -c-1
+python -m http.server 8080
+# open http://localhost:8080/
 ```
 
-## AdSense
-Replace `ca-pub-XXXXXXXXXXXXXXXX` and `YOUR_AD_SLOT_ID` in `index.html` with your real Google AdSense publisher ID and ad slot ID.
+## Asset credits
 
-## License
-MIT
+All bundled media is used under open licenses. See [`assets/CREDITS.md`](assets/CREDITS.md) and
+[`assets/CREDITS.json`](assets/CREDITS.json) for per-file attribution.
+
+- **Icons:** [OpenMoji](https://openmoji.org) — CC BY-SA 4.0
+- **Sounds / photos / music:** discovered via [Openverse](https://openverse.org) — CC0, Public Domain, and CC BY
+
+Media that isn't bundled falls back gracefully to synthesized audio and illustrated icons.
