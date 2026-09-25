@@ -26,6 +26,21 @@ A browser-based, offline-friendly early-learning sensory playground for babies a
 - **Installable PWA** — works fully offline after the first visit; all assets are preloaded and cached
 - Respects `prefers-reduced-motion` and Calm Mode
 
+## Kid-proofing / child lock
+
+- **Parent gate:** inside a play world, press-and-**hold** the 🔒 (top-right) for ~1s, then
+  hold the blue ring for ~2.5s to reach the parent dashboard / exit. The hold shows a
+  progress fill so you can tell it's registering. Two deliberate holds keep little fingers out.
+- **Escape-key guard:** the app suppresses the context menu and common shortcuts
+  (F12, Ctrl+Shift+I/J/C, Ctrl+U/S/P, Ctrl+W/N/T, hard-reload) and warns before an
+  accidental reload/close while playing.
+- **Important limitation:** a web page **cannot** fully block DevTools, tab close, or the
+  browser's own menus — that's a browser security boundary. For a truly locked-down
+  experience, run the app **fullscreen** and use your device's kiosk mode:
+  - **Windows:** Assigned Access (single-app kiosk) or Edge/Chrome `--kiosk` mode
+  - **iPad/iPhone:** Guided Access (Settings → Accessibility → Guided Access)
+  - **Android:** Screen Pinning / a kiosk launcher
+
 ## Run locally
 
 Any static file server works:

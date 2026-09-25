@@ -350,6 +350,31 @@ html, body {
     opacity: 1;
 }
 
+.parent-lock-btn.holding {
+    opacity: 1;
+    transform: scale(1.25);
+    background: rgba(0, 191, 255, 0.35);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5), 0 0 22px var(--accent-blue);
+    transition: transform 0.1s ease;
+}
+
+#unlock-hint {
+    position: absolute;
+    bottom: calc(clamp(80px, 16vh, 120px) + env(safe-area-inset-bottom) + 34px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 120;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+/* Only show the exit hint inside a playroom, not on the home screen */
+#home-screen:not(.hidden) ~ #unlock-hint { display: none; }
+
 #sensory-canvas {
     position: absolute;
     inset: 0;
@@ -599,6 +624,12 @@ html, body {
 .adult-ring:active {
     transform: scale(0.92);
     background: rgba(0, 191, 255, 0.4);
+}
+
+.adult-ring.holding {
+    transform: scale(1.06);
+    background: conic-gradient(var(--accent-blue) var(--hold, 0%), rgba(0, 191, 255, 0.15) 0);
+    box-shadow: 0 0 26px rgba(0, 191, 255, 0.6);
 }
 
 /* ========== PARENT DASHBOARD ========== */

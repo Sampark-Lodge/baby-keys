@@ -76,6 +76,7 @@ class BabyInputLayer {
     }
 
     handleTouchStart(e) {
+        if (this._isUiTarget(e.target)) return; // lock / modal / dashboard handle their own
         e.preventDefault();
         const touches = e.changedTouches;
         for (let i = 0; i < touches.length; i++) {
@@ -90,7 +91,16 @@ class BabyInputLayer {
         }
     }
 
+    _isUiTarget(target) {
+        return !!(target && target.closest && (
+            target.closest('.parent-lock-btn') ||
+            target.closest('.adult-modal-panel') ||
+            target.closest('.dashboard-panel')
+        ));
+    }
+
     handleTouchMove(e) {
+        if (this._isUiTarget(e.target)) return;
         e.preventDefault();
         const t = e.touches[0];
         if (t && Math.random() < 0.5) { // Sub-sampled drag trail

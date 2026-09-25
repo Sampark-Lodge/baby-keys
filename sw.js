@@ -1,4 +1,4 @@
-const CACHE_NAME = 'baby-keys-v10-teaching';
+const CACHE_NAME = 'baby-keys-v11-kidlock';
 const ASSETS_TO_CACHE = [
     './',
     'index.html',
@@ -18,6 +18,7 @@ const ASSETS_TO_CACHE = [
     'js/core/session-engine.js',
     'js/core/chaos-tester.js',
     'js/core/input-layer.js',
+    'js/core/kid-guard.js',
     'js/core/interaction-engine.js',
     'js/learning/concept-registry.js',
     'js/learning/learning-data.js',
