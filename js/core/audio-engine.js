@@ -276,6 +276,11 @@ class BabyAudioEngine {
         }
     }
 
+    /**
+     * Speaks slowly and clearly for teaching: each word is drawn out at a low rate
+     * and separated by a deliberate pause ("Rrred ... Baaall") so a baby hears every
+     * word distinctly. Speaks word-by-word with gaps rather than one rushed phrase.
+     */
     speak(text) {
         if (!this.voiceEnabled) {
             this.playRandomNote();
@@ -287,11 +292,35 @@ class BabyAudioEngine {
         }
         try {
             speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(text);
-            u.rate = 0.85;
-            u.pitch = 1.2;
-            u.volume = 0.85;
-            speechSynthesis.speak(u);
+
+            const words = String(text).split(/\s+/).filter(Boolean);
+            if (!words.length) return;
+
+            const rate = this.calmMode ? 0.45 : 0.55; // slow, drawn-out
+            const gapMs = this.calmMode ? 650 : 450;   // space between words
+            const pitch = 1.15;
+            const volume = 0.9;
+
+            // Tag this utterance run so a newer speak() call cancels this one cleanly.
+            const runId = (this._speakRun = (this._speakRun || 0) + 1);
+
+            let i = 0;
+            const sayNext = () => {
+                if (runId !== this._speakRun) return; // superseded by a newer call
+                if (i >= words.length) return;
+                const u = new SpeechSynthesisUtterance(words[i]);
+                u.rate = rate;
+                u.pitch = pitch;
+                u.volume = volume;
+                const advance = () => {
+                    i++;
+                    if (runId === this._speakRun) setTimeout(sayNext, gapMs);
+                };
+                u.onend = advance;
+                u.onerror = advance;
+                speechSynthesis.speak(u);
+            };
+            sayNext();
         } catch (e) {
             this.playChime();
         }

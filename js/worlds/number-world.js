@@ -57,7 +57,7 @@ class NumberWorld {
         const displayCount = Math.min(count, 15);
         let itemsHtml = '';
         for (let i = 0; i < displayCount; i++) {
-            itemsHtml += `<span class="bouncy-count-item" style="display:inline-block; font-size:2.8rem; margin:4px; cursor:pointer; transition:transform 0.2s;" onclick="event.stopPropagation(); audioEngine.playPop(); sensoryEngine.addSparkles(event.clientX, event.clientY, '#ffca3a', 8); this.style.transform='scale(1.5) rotate(10deg)'; setTimeout(() => this.style.transform='scale(1)', 200);">${babyEmoji.img(emojiChar)}</span>`;
+            itemsHtml += `<span class="bouncy-count-item" style="display:inline-block; font-size:3.8rem; margin:5px; cursor:pointer; transition:transform 0.2s;" onclick="event.stopPropagation(); audioEngine.playPop(); sensoryEngine.addSparkles(event.clientX, event.clientY, '#ffca3a', 8); this.style.transform='scale(1.5) rotate(10deg)'; setTimeout(() => this.style.transform='scale(1)', 200);">${babyEmoji.img(emojiChar)}</span>`;
         }
 
         this.containerEl.innerHTML = `

@@ -7,9 +7,9 @@
  */
 function babyCanAdvance(world) {
     const now = Date.now();
-    let delay = world.advanceDelayMs || 1600;
+    let delay = world.advanceDelayMs || 2800;
     if (typeof storageManager !== 'undefined' && storageManager.settings && storageManager.settings.calmMode) {
-        delay = Math.max(delay, 2400);
+        delay = Math.max(delay, 4000);
     }
     if (now - (world._lastAdvance || 0) < delay) return false;
     world._lastAdvance = now;

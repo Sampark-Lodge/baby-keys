@@ -388,8 +388,8 @@ html, body {
 }
 
 .world-giant-card {
-    width: clamp(280px, 65vw, 480px);
-    height: clamp(340px, 68vh, 540px);
+    width: clamp(320px, 74vw, 600px);
+    height: clamp(380px, 74vh, 660px);
     background: rgba(255, 255, 255, 0.1);
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 40px;
@@ -404,7 +404,7 @@ html, body {
 }
 
 .world-symbol {
-    font-size: clamp(6rem, 18vw, 12rem);
+    font-size: clamp(7.5rem, 24vw, 15rem);
     color: var(--accent-yellow);
     font-weight: 700;
     text-shadow: 0 4px 20px rgba(255, 204, 0, 0.4);
@@ -412,7 +412,7 @@ html, body {
 }
 
 .world-emoji {
-    font-size: clamp(4rem, 12vw, 7.5rem);
+    font-size: clamp(5.5rem, 17vw, 10.5rem);
     filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4));
     line-height: 1;
 }
@@ -435,8 +435,8 @@ html, body {
 
 /* Real object photos */
 .world-photo {
-    width: clamp(180px, 48vw, 320px);
-    height: clamp(180px, 40vh, 320px);
+    width: clamp(240px, 58vw, 440px);
+    height: clamp(240px, 50vh, 440px);
     object-fit: cover;
     border-radius: 28px;
     border: 4px solid rgba(255, 255, 255, 0.55);
@@ -450,7 +450,7 @@ html, body {
 }
 
 .world-name {
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
     font-weight: 700;
     color: #ffffff;
     text-align: center;
@@ -888,18 +888,18 @@ body.calm-mode .floaty { display: none; }
 
     /* Concept cards: fit within the space between header and keyboard */
     .world-giant-card {
-        width: min(88vw, 420px);
+        width: min(94vw, 500px);
         height: auto;
         min-height: 0;
         max-height: 100%;
-        padding: 24px 20px;
-        gap: 12px;
-        border-radius: 32px;
+        padding: 26px 22px;
+        gap: 14px;
+        border-radius: 34px;
     }
-    .world-symbol { font-size: clamp(5rem, 22vw, 8rem); }
-    .world-emoji { font-size: clamp(3.4rem, 16vw, 6rem); }
-    .world-name { font-size: clamp(1.4rem, 6vw, 2.2rem); }
-    .world-photo { width: min(72vw, 260px); height: min(52vh, 260px); }
+    .world-symbol { font-size: clamp(6.5rem, 30vw, 11rem); }
+    .world-emoji { font-size: clamp(5rem, 26vw, 8.5rem); }
+    .world-name { font-size: clamp(1.9rem, 8vw, 3rem); }
+    .world-photo { width: min(86vw, 380px); height: min(54vh, 380px); }
 
     /* Music world instrument grid */
     .music-world { padding-bottom: calc(clamp(76px, 14vh, 100px) + env(safe-area-inset-bottom) + 20px); }
